@@ -9,10 +9,12 @@ namespace Factory
     class CandyMaker : public SugarSupplier, public ChocolateSupplier
     {
         private:
+            char* candy;
+            SugarSupplier *sugarSupplier;
+            ChocolateSupplier *chocolateSupplier;
+
         public:
-        void makeCandy(const char* candyName){
-           std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << candyName << "! 🍭";
-        };
+        void makeCandy(const char* candyName);
         CandyMaker(const char *sugarSupplierName, const char *chocolateSupplierName);
     };
 }
