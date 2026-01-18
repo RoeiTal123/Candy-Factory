@@ -10,9 +10,6 @@ namespace Factory
     {
         private:
             char* candy;
-            SugarSupplier *sugarSupplier;
-            ChocolateSupplier *chocolateSupplier;
-
         public:
         void makeCandy(const char* candyName);
         CandyMaker(const char *sugarSupplierName, const char *chocolateSupplierName);
