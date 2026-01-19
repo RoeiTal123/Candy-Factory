@@ -26,7 +26,6 @@ namespace Factory
         
         CandyBox(int size) : capacity(size), count(0)
         {
-            std::cout << "Hellow!" << std::endl;
             items = new T[capacity]; 
         }
 
