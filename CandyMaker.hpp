@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -9,8 +10,10 @@ namespace Factory
     class CandyMaker : public SugarSupplier, public ChocolateSupplier
     {
         private:
-            char* candy;
+            char* currentCandy;
+
         public:
+
         void makeCandy(const char* candyName);
         CandyMaker(const char *sugarSupplierName, const char *chocolateSupplierName);
     };

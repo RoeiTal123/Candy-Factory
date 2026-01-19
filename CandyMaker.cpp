@@ -16,7 +16,17 @@ namespace Factory
         std::cout << "the chocolate supplier is - " << chocolateSupplierName <<", and the sugar supplier is - " << sugarSupplierName;
     }
 
-    void CandyMaker:: makeCandy(const char* candyName){
-        std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << candyName << "! 🍭";
+    void CandyMaker:: makeCandy(const char* candyName)
+    {
+        if (candyName == '\0')
+        {
+            std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << candyName << "! 🍭";
+        }
+        else
+        {
+            std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << currentCandy << "! 🍭";
+        }
+        
+        
     }
 }
