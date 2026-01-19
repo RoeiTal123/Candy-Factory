@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <type_traits>
 
 // ID: 327397105, name: Denis Beigel
 // ID: 212692875, name: Roei Tal
@@ -16,7 +17,6 @@ namespace Factory
             T* items;               // Pointer to the dynamically allocated array
             int capacity;           // Max size of the array
             int count;              // Currant size of occupied storage 
-            void resizeArray(int newSize);     // Re-size the array
         
         public:
         
@@ -27,8 +27,6 @@ namespace Factory
         bool removeItem(int index);
 
         void displayItems();
-
-        T getVar() { return var; }
 
         ~CandyBox();
     };

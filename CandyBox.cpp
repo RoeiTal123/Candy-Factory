@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include <utility>
+#include <type_traits>
 #include "CandyBox.hpp"
 #include "SugarSupplier.hpp"
 #include "ChocolateSupplier.hpp"
@@ -13,26 +13,6 @@
 
 namespace Factory
 {
-    // private:
-    
-    template <class T>
-    void CandyBox<T>::resizeArray(int newSize)
-    {
-
-        // Double capacity
-        int newCapacity = capacity == 0 ? 1 : capacity * 2;
-        T* temp = new T[newCapacity];
-
-        // Copy elements from old array to new array
-        for (int i = 0; i < current_size; ++i) 
-        {
-            temp[i] = items[i];
-        }
-
-        delete[] items;
-        items = temp;
-        capacity = newCapacity;
-    }
 
     // public:
 
@@ -49,7 +29,7 @@ namespace Factory
     {
         if (count < capacity)
         {
-            items[count] = value; // Add the new element
+            items[count] = newItem; // Add the new element
             count++;
         }
         return false;
@@ -75,17 +55,17 @@ namespace Factory
     {
         for (int i = 0; i < count - 1; i++)
         {
-            if (std::is_same_v(T, CandyMaker))
-            {
-                items[i].makeCandy();
-            }
-            else if (std::is_same_v(T, SugarSupplier))
+            if (std::is_class_v<CandyMaker>)
             {
                 items[i].supplySugar();
             }
-            else if (std::is_same_v(T, ChocolateSupplier))
+            else if (std::is_class_v<ChocolateSupplier>)
             {
                 items[i].supplyChocolate();
+            }
+            else if (std::is_class_v<SugarSupplier>)
+            {
+                items[i].supplySugar();
             }
             else
             {

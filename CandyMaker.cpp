@@ -18,7 +18,7 @@ namespace Factory
 
     void CandyMaker:: makeCandy(const char* candyName)
     {
-        if (candyName == '\0')
+        if (!candyName || candyName[0] == '\0')
         {
             std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << candyName << "! 🍭";
         }
