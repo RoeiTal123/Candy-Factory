@@ -11,6 +11,7 @@ namespace Factory
     SugarSupplier::SugarSupplier(const char* sugarName)
     {
         this->sugarName = new char[strlen(sugarName) + 1];
+        strcpy(this->sugarName, sugarName);
     }
 
     SugarSupplier::~SugarSupplier(){

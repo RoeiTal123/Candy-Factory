@@ -10,21 +10,20 @@
 
 namespace Factory
 {
-    CandyMaker::CandyMaker(const char *sugarSupplierName, const char *chocolateSupplierName) 
-    : SugarSupplier(sugarSupplierName), ChocolateSupplier(chocolateSupplierName)
+    CandyMaker::CandyMaker(const char *sugarSupplierName, const char *chocolateSupplierName) : SugarSupplier(sugarSupplierName), ChocolateSupplier(chocolateSupplierName)
     {
-        std::cout << "the chocolate supplier is - " << chocolateSupplierName <<", and the sugar supplier is - " << sugarSupplierName;
+        std::cout << "the chocolate supplier is - " << chocolateSupplierName <<", and the sugar supplier is - " << sugarSupplierName << std::endl;
     }
 
     void CandyMaker:: makeCandy(const char* candyName)
     {
         if (!candyName || candyName[0] == '\0')
         {
-            std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << candyName << "! 🍭";
+            std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << candyName << "! 🍭" << std::endl;
         }
         else
         {
-            std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << currentCandy << "! 🍭";
+            std::cout << "Using sugar from " << getSugarName() << " and chocolate from " << getChocolateName() << " to create " << currentCandy << "! 🍭" << std::endl;
         }
         
         

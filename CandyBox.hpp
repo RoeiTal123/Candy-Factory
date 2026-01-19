@@ -24,10 +24,9 @@ namespace Factory
         
         public:
         
-        CandyBox(int size)
+        CandyBox(int size) : capacity(size), count(0)
         {
-            count = 0;
-            capacity = size;
+            std::cout << "Hellow!" << std::endl;
             items = new T[capacity]; 
         }
 
@@ -37,19 +36,20 @@ namespace Factory
             {
                 items[count] = newItem; // Add the new element
                 count++;
+                return true;
             }
             return false;
         }
 
         bool removeItem(int index)
         {
-            if(0 <= index < count)
+            if (index >= 0 && index < count)
             {
-                delete [] items[index];
-                for (int i = index; i < count; i++)
+                for (int i = index; i < count - 1; i++)
                 {
                     items[i] = std::move(items[i + 1]);
                 }
+                count--;
                 return true;
             }
             return false;
@@ -58,25 +58,26 @@ namespace Factory
 
         void displayItems()
         {
-            for (int i = 0; i < count - 1; i++)
+            
+
+            for (int i = 0; i < count; i++)
             {
-                // if (std::is_class_v<CandyMaker>)
-                // {
-                //     items[i].supplySugar();
-                // }
-                // else if (std::is_class_v<ChocolateSupplier>)
-                // {
-                //     items[i].supplyChocolate();
-                // }
-                // else if (std::is_class_v<SugarSupplier>)
-                // {
-                //     items[i].supplySugar();
-                // }
-                // else
-                // {
-                //     std::cout << items[i] << std::endl;
-                // }
-                std::cout << items[i] << std::endl;
+                if constexpr (std::is_same_v<T, CandyMaker>)
+                {
+                    items[i].makeCandy();
+                }
+                else if constexpr (std::is_same_v<T, ChocolateSupplier>)
+                {
+                    items[i].supplyChocolate();
+                }
+                else if constexpr (std::is_same_v<T, SugarSupplier>)
+                {
+                    items[i].supplySugar();
+                }
+                else
+                {
+                    std::cout << items[i] << std::endl;
+                }
             }
         }
 

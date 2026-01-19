@@ -16,6 +16,8 @@ namespace Factory
         const char* getSugarName();
         void setSugarName(const char* name);
 
+        void setSugarName();
+
         void supplySugar(){std::cout << this->sugarName <<" is now supplying sugar! 🍬 \n";};
 
         SugarSupplier(const char* sugarName);

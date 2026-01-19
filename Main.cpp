@@ -8,7 +8,9 @@
 int main()
 {
     using namespace Factory;
-    
+     
+    // const char* S = "SugarCo";
+    // const char* C = "ChocoDelight";
     CandyMaker maker("SugarCo", "ChocoDelight");
     maker.supplySugar();
     maker.supplyChocolate();
