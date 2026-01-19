@@ -17,7 +17,7 @@ int main()
     maker.makeCandy("Fudge Surprise");
 
     // The CandyBox
-    CandyBox<const char*> box(5);
+    CandyBox<const char*> box((5));
     box.addItem("SourLollipop");
     box.addItem("MintChoco");
     box.displayItems();
