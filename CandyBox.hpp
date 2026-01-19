@@ -6,9 +6,10 @@
 // ID: 212692875, name: Roei Tal
 
 
-namespace Factory
-{
+namespace Factory{
     class CandyBox{
-
+        private:
+        public:
+        // CandyBox();
     };
 }

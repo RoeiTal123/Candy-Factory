@@ -1,21 +1,17 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-
-// ID: 327397105, name: Denis Beigel
-// ID: 212692875, name: Roei Tal
-
+#include "SugarSupplier.hpp"
+#include "ChocolateSupplier.hpp"
 
 namespace Factory
 {
-    class CandyMaker{
+    class CandyMaker : public SugarSupplier, public ChocolateSupplier
+    {
         private:
-
+            char* candy;
         public:
-
-        CandyMaker(const char* sugarSupplierName, const char* chocolateSupplierName); // 
-
         void makeCandy(const char* candyName);
-
+        CandyMaker(const char *sugarSupplierName, const char *chocolateSupplierName);
     };
 }
